@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Главная — Васюганский заповедник{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>{{ info.name }}</h1>
+    <p class="lead">{{ info.description }}</p>
+    <img src="{{ info.image }}" alt="Большое Васюганское болото" class="hero-image">
+</section>
+
+<section class="cards">
+    <div class="card">
+        <h3>Учреждён</h3>
+        <p>{{ info.created }}</p>
+    </div>
+    <div class="card">
+        <h3>Начал работу</h3>
+        <p>{{ info.work_started }}</p>
+    </div>
+    <div class="card">
+        <h3>Общая площадь</h3>
+        <p>{{ info.total_area }}</p>
+    </div>
+</section>
+
+<section>
+    <h2>Расположение</h2>
+    <p>{{ info.location }}. В административном плане занимает южную часть Бакчарского района Томской области и северные территории Северного и Убинского районов Новосибирской области.</p>
+    <ul>
+        <li>Томская область: <strong>{{ info.tomsk_area }}</strong></li>
+        <li>Новосибирская область: <strong>{{ info.novosibirsk_area }}</strong></li>
+    </ul>
+    <p>Территория лежит на стыке южной тайги и подтайги, поэтому ландшафт представлен преимущественно болотными комплексами, а лесные массивы (елово-кедрово-пихтовые и осиново-берёзовые) сосредоточены вдоль рек Кёнга, Парбиг и Андарма.</p>
+</section>
+{% endblock %}

@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+{% block title %}Природа — Васюганский заповедник{% endblock %}
+
+{% block content %}
+<h1>Природа заповедника</h1>
+
+<section>
+    <h2>🌱 Растения</h2>
+    <p>{{ plants.total }}.</p>
+
+    {% for group in plants.groups %}
+    <div class="card">
+        <h3>{{ group.title }}</h3>
+        <ul class="gallery-list">
+            {% for item in group["items"] %}
+            <li>
+                {% if item.image %}
+                    <!-- Если есть картинка, делаем ссылку -->
+                    <a href="/nature/{{ item.name | urlencode }}" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; width: 100%; height: 100%;">
+                        <img src="{{ item.image }}" alt="{{ item.name }}" class="thumb-img">
+                        <span style="text-decoration: underline; text-decoration-color: transparent; transition: 0.2s;" onmouseover="this.style.textDecorationColor='#2d5a3d'" onmouseout="this.style.textDecorationColor='transparent'">
+                            {{ item.name }}
+                        </span>
+                    </a>
+                {% else %}
+                    <!-- Если картинки нет, просто выводим текст (без ссылки) -->
+                    <span style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center;">
+                        {{ item.name }}
+                    </span>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+
+    <article class="card detail">
+        <h3>{{ plants.neckera.title }}</h3>
+        <p><em>{{ plants.neckera.family }}</em></p>
+
+        <img src="{{ plants.neckera.image }}" alt="Мох Неккера Пристая" class="detail-image">
+
+        <h4>Распространение</h4>
+        <p>{{ plants.neckera.distribution }}</p>
+
+        <h4>Внешний вид</h4>
+        <ul>
+            {% for point in plants.neckera.appearance %}
+            <li>{{ point }}</li>
+            {% endfor %}
+        </ul>
+
+        <p class="note">{{ plants.neckera.status }}</p>
+    </article>
+
+    <p class="note">{{ plants.herbarium }}</p>
+
+    <article class="card detail">
+        <h3>{{ plants.ericaceae.title }}</h3>
+
+        <img src="{{ plants.ericaceae.image }}" alt="Цветы семейства Вересковые" class="detail-image">
+
+        <p>{{ plants.ericaceae.intro }}</p>
+        <p>{{ plants.ericaceae.symbiosis }}</p>
+
+        <h4>Листья (три типа)</h4>
+        <ol>
+            {% for leaf in plants.ericaceae.leaves %}
+            <li>{{ leaf }}</li>
+            {% endfor %}
+        </ol>
+
+        <h4>Цветки</h4>
+        <p>{{ plants.ericaceae.flowers }}</p>
+
+        <h4>Плоды</h4>
+        <p>{{ plants.ericaceae.fruits }}</p>
+
+        <h4>Древесина</h4>
+        <p>{{ plants.ericaceae.wood }}</p>
+    </article>
+</section>
+
+<section>
+    <h2>🐻 Животные</h2>
+    <p>Млекопитающих: <strong>{{ animals.mammals_count }}</strong> видов.
+       Птиц: <strong>{{ animals.birds_count }}</strong> видов.</p>
+
+    <h3>Млекопитающие</h3>
+    {% for group in animals.mammals %}
+    <div class="card">
+        <h3>{{ group.title }}</h3>
+        <ul class="gallery-list">
+            {% for item in group["items"] %}
+            <li>
+                {% if item.image %}
+                    <a href="/nature/{{ item.name | urlencode }}" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; width: 100%; height: 100%;">
+                        <img src="{{ item.image }}" alt="{{ item.name }}" class="thumb-img">
+                        <span style="text-decoration: underline; text-decoration-color: transparent; transition: 0.2s;" onmouseover="this.style.textDecorationColor='#2d5a3d'" onmouseout="this.style.textDecorationColor='transparent'">
+                            {{ item.name }}
+                        </span>
+                    </a>
+                {% else %}
+                    <span style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center;">
+                        {{ item.name }}
+                    </span>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+
+    <h3>Птицы</h3>
+    {% for group in animals.birds %}
+    <div class="card">
+        <h3>{{ group.title }}</h3>
+        <ul class="gallery-list">
+            {% for item in group["items"] %}
+            <li>
+                {% if item.image %}
+                    <a href="/nature/{{ item.name | urlencode }}" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; width: 100%; height: 100%;">
+                        <img src="{{ item.image }}" alt="{{ item.name }}" class="thumb-img">
+                        <span style="text-decoration: underline; text-decoration-color: transparent; transition: 0.2s;" onmouseover="this.style.textDecorationColor='#2d5a3d'" onmouseout="this.style.textDecorationColor='transparent'">
+                            {{ item.name }}
+                        </span>
+                    </a>
+                {% else %}
+                    <span style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center;">
+                        {{ item.name }}
+                    </span>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+
+    <p class="note">{{ animals.deer_note }}</p>
+</section>
+{% endblock %}

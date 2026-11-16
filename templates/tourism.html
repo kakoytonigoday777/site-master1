@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Туризм — Васюганский заповедник{% endblock %}
+
+{% block content %}
+<h1>Туризм</h1>
+
+<section>
+    <h2>Маршрут «{{ tourism.route_name }}»</h2>
+    <p>{{ tourism.note }}</p>
+    <ul class="facts">
+        <li><strong>Сезон:</strong> {{ tourism.season }}</li>
+        <li><strong>Общая протяжённость:</strong> {{ tourism.length_total }}</li>
+        <li><strong>Пешая часть:</strong> {{ tourism.length_walking }}</li>
+        <li><strong>Длительность:</strong> {{ tourism.duration }}</li>
+        <li><strong>Возраст:</strong> {{ tourism.age }}</li>
+        <li><strong>Стоимость:</strong> {{ tourism.price_adult }} (взрослый), {{ tourism.price_child }} (несовершеннолетние)</li>
+    </ul>
+
+    <h3>Что можно увидеть и сделать</h3>
+    <ul>
+        {% for h in tourism.highlights %}
+        <li>{{ h }}</li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}

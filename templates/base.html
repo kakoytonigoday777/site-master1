@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Васюганский заповедник{% endblock %}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <a href="/" class="logo">🌿 Васюганский заповедник</a>
+            <nav>
+                <a href="/">Главная</a>
+                <a href="/nature">Природа</a>
+                <a href="/tourism">Туризм</a>
+                <a href="/contacts">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© Васюганский заповедник. Большое Васюганское болото — крупнейшая болотная система Северного полушария.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}{{ title }} — Васюганский заповедник{% endblock %}
+
+{% block content %}
+<p style="margin-bottom: 20px;">
+    <a href="/nature" style="text-decoration: none; font-weight: 500;">← Назад к природе</a>
+</p>
+
+<article class="card detail">
+    <h1>{{ title }}</h1>
+
+    {% if image %}
+        <img src="{{ image }}" alt="{{ title }}" class="detail-image" style="max-width: 100%; max-height: 500px; object-fit: contain;">
+    {% endif %}
+
+    <div style="margin-top: 20px; font-size: 1.1rem; line-height: 1.8;">
+        {{ description | safe }}
+    </div>
+</article>
+{% endblock %}

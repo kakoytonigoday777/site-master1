@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Контакты — Васюганский заповедник{% endblock %}
+
+{% block content %}
+<h1>Контакты</h1>
+<p>Посещение территории возможно только в составе организованной группы и по предварительной договорённости с администрацией заповедника.</p>
+
+<ul class="facts">
+    <li><strong>Официальный сайт:</strong>
+        <a href="{{ info.contacts.site }}" target="_blank" rel="noopener">
+            {{ info.contacts.site }}
+        </a>
+    </li>
+    <li><strong>Телефон:</strong>
+        <a href="tel:+73822905735">{{ info.contacts.phone }}</a>
+    </li>
+    <li><strong>Томская область:</strong> южная часть Бакчарского района</li>
+    <li><strong>Новосибирская область:</strong> Северный и Убинский районы</li>
+    <li><strong>Площадь:</strong> {{ info.total_area }}</li>
+</ul>
+
+{% endblock %}

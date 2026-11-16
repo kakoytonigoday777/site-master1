@@ -1,0 +1,241 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: #1f2d1f;
+    background: #f4f8f2;
+    line-height: 1.6;
+
+    /* Прижимаем подвал к низу */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background: #2d5a3d;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.logo {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.15rem;
+    text-decoration: none;
+}
+
+nav a {
+    color: #d9f0dd;
+    text-decoration: none;
+    margin-left: 18px;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+main {
+    padding: 30px 0 50px;
+    flex: 1;
+}
+
+.hero {
+    background: linear-gradient(135deg, #3f7a52, #7fb08a);
+    color: #fff;
+    padding: 40px 30px;
+    border-radius: 14px;
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    margin: 0 0 10px;
+    font-size: 2rem;
+}
+
+.lead {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+h2 {
+    color: #2d5a3d;
+    border-bottom: 2px solid #cfe3d3;
+    padding-bottom: 6px;
+    margin-top: 40px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #d5e6d8;
+    border-radius: 12px;
+    padding: 16px 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.card h3 {
+    margin: 0 0 8px;
+    color: #2d5a3d;
+    font-size: 1.05rem;
+}
+
+.card p {
+    margin: 0;
+}
+
+ul {
+    padding-left: 22px;
+}
+
+.facts li {
+    margin-bottom: 6px;
+}
+
+.note {
+    background: #eef6ee;
+    border-left: 4px solid #4e8b60;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-style: italic;
+    margin-top: 15px;
+}
+
+footer {
+    background: #2d5a3d;
+    color: #cfe3d3;
+    padding: 20px 0;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: auto;
+}
+
+a {
+    color: #2d7a44;
+}
+
+/* =========================================
+   Блоки с дополнительной информацией
+   ========================================= */
+
+.card.detail {
+    margin-top: 18px;
+    border-left: 5px solid #4e8b60;
+    background: #fbfdfb;
+}
+
+.card.detail h4 {
+    margin: 16px 0 6px;
+    color: #3f7a52;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.card.detail ol {
+    padding-left: 22px;
+}
+
+/* Стили для изображений */
+.hero-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 20px;
+    display: block;
+}
+
+.detail-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    margin: 15px 0;
+    display: block;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================================
+   Списки с миниатюрами (картинки в ряд)
+   ========================================= */
+
+.gallery-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.gallery-list li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 130px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.thumb-img {
+    width: 130px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Улучшение отображения для элементов без картинок */
+.gallery-list li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Прижимаем к верху */
+    width: 140px;
+    text-align: center;
+    font-size: 0.9rem;
+    background: #f9fbf9; /* Легкий фон для карточек */
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid #e0ece2;
+}
+
+.thumb-img {
+    width: 120px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
